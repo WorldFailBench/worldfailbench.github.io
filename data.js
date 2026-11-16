@@ -365,25 +365,25 @@ window.BOUNDARY_EXAMPLES = [
   {
     "environment": "RoboTwin",
     "factor": "orientation",
-    "pair": "pair_034",
-    "title": "Stack two blocks",
+    "pair": "pair_025",
+    "title": "Place burger and fries on the tray",
     "policy": "FastWAM",
-    "intervention": "Rotate the red block by another 20 degrees.",
+    "intervention": "Rotate the fries carton by another 20 degrees.",
     "success": {
-      "file": "robotwin-orientation-success.mp4",
-      "poster": "robotwin-orientation-success.jpg",
-      "condition": "Red block yaw +20\u00b0",
-      "caption": "The green block is placed on top of the red block.",
-      "duration": 10.6,
+      "file": "robotwin-orientation-fries-success.mp4",
+      "poster": "robotwin-orientation-fries-success.jpg",
+      "condition": "Fries carton yaw \u221220\u00b0",
+      "caption": "Both the burger box and fries carton reach the tray.",
+      "duration": 7.633333,
       "width": 320,
       "height": 240
     },
     "failure": {
-      "file": "robotwin-orientation-failure.mp4",
-      "poster": "robotwin-orientation-failure.jpg",
-      "condition": "Red block yaw +40\u00b0",
-      "caption": "The blocks end up side by side instead of stacked.",
-      "duration": 26.666667,
+      "file": "robotwin-orientation-fries-failure.mp4",
+      "poster": "robotwin-orientation-fries-failure.jpg",
+      "condition": "Fries carton yaw \u221240\u00b0",
+      "caption": "The burger reaches the tray, but the fries carton stays outside.",
+      "duration": 16.666667,
       "width": 320,
       "height": 240
     }
