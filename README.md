@@ -26,6 +26,7 @@ Edit index.html, style.css, app.js, data.js, or assets/, then push to main. The 
 - Original research figures and six real initial observations.
 - Sample download with reference outcomes and task-stage vocabulary. This is a subset, not a full dataset mirror.
 - Interactive evaluation-task tabs and factor-specific RoboTwin result explorer.
+- Dataset entry points link directly to the official Hugging Face dataset; the sample archive remains a clearly labeled subset.
 - Evaluation code marked as not yet released.
 
 data.js contains verified result values and sample records. Boundary scores are separated by intervention. Dataset counts distinguish paper scope from released simulation evaluation records.
