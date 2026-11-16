@@ -1,16 +1,6 @@
 {
   "name": "WorldFailBench",
-  "description": "A benchmark for failure reason, failure stage, and failure boundary fidelity in world-model-based policy evaluation.",
-  "paper_scope": {
-    "world_models": 7,
-    "tasks": 32,
-    "reference_rollouts": 6900,
-    "platforms": [
-      "LIBERO",
-      "RoboTwin",
-      "G1 humanoid"
-    ]
-  },
+  "description": "A benchmark for failure type, failure stage, and failure boundary fidelity in world-model-based policy evaluation.",
   "released_evaluation": {
     "total_episodes": 6500,
     "RoboTwin": {
@@ -46,8 +36,18 @@
     "Indeterminate Failure"
   ],
   "notes": [
-    "Paper scope and released simulation evaluation scope are distinct.",
+    "Benchmark coverage and released simulation evaluation scope are distinct.",
     "Boundary episodes are separate from the 6500 simulation evaluation episodes.",
     "No identifying links are included in this anonymous summary."
-  ]
+  ],
+  "benchmark_scope": {
+    "world_models": 7,
+    "tasks": 32,
+    "reference_rollouts": 6900,
+    "platforms": [
+      "LIBERO",
+      "RoboTwin",
+      "G1 humanoid"
+    ]
+  }
 }

@@ -22,14 +22,12 @@ Edit index.html, style.css, app.js, data.js, or assets/, then push to main. The 
 
 ## Materials
 
-- Anonymous full paper and appendix: original author block, institutional logo, links, and identifying document metadata removed. Ordinary academic references are preserved.
-- Original research figures and six real initial observations.
-- Real initial observations, reference outcomes, and task-stage vocabulary in the scene gallery.
-- Six paired boundary examples (12 reference videos) across RoboTwin and LIBERO, covering position, orientation, and size. Individual outcomes are checked against scene annotations and visually reviewed.
-- Video frames are preserved by stream-copying H.264 into fast-start MP4; native resolution and frame rate are unchanged. Selected source paths and media checksums are recorded in assets/boundary/manifest.json.
-- Interactive evaluation-task tabs and factor-specific RoboTwin result explorer.
-- All dataset resource entry points link directly to the complete official Hugging Face release.
+- Benchmark diagrams and diagnostic findings organized by failure type, failure stage, and failure boundary.
+- RoboTwin, LIBERO, and G1 platform coverage with representative imagery.
+- Six paired boundary examples (12 reference videos), with individual outcomes checked against scene annotations and visual review.
+- Video frames are preserved by stream-copying H.264 into fast-start MP4. Source paths and checksums are recorded in assets/boundary/manifest.json.
+- The only external destination linked by the website is the complete dataset on Hugging Face.
 
-data.js contains verified result values and sample records. Boundary scores are separated by intervention. Dataset counts distinguish paper scope from released simulation evaluation records.
+data.js contains verified result values and boundary video records. Controlled boundary evaluation covers RoboTwin and LIBERO; type and stage evaluation also cover real-world G1 tasks. Counts distinguish benchmark coverage from released simulation evaluation records.
 
-The page contains no author or affiliation attribution. The title and technical content remain publicly searchable. Hosting account identity is visible in the URL and repository.
+The page contains no author or affiliation attribution. Hosting account identity is visible in the URL and repository.

@@ -1,24 +1,16 @@
 {
   "platform": "RoboTwin",
-  "tables": {
-    "TFE": 3,
-    "SFE": 4,
-    "successRateCorrelation": 5,
-    "SPC": 5,
-    "boundary": 6,
-    "TPC": 15
-  },
   "notes": {
     "TFE": "Mean weights five policies equally; each policy averages tasks. Lower is better.",
-    "SFE": "Mean averages policies within task, then tasks. Lower is better. Range 0\u20132.",
+    "SFE": "Mean averages policies within task, then tasks. Lower is better. Range 0–2.",
     "TPC": "Overall Mean averages defined type correlations within tasks, then tasks equally. Higher is better.",
     "SPC": "Mean defined stage correlations within task then tasks. Five policies. Higher is better.",
-    "boundary": "OA/GE reported separately per scene factor. Scores average settings within each factor. No overall aggregate published; do not label arithmetic mean as paper score."
+    "boundary": "OA/GE reported separately per scene factor. Scores average settings within each factor. No overall boundary aggregate is reported."
   },
   "rows": [
     {
-      "model": "Ref\u2013Ref",
-      "fullName": "Ref\u2013Ref",
+      "model": "Ref–Ref",
+      "fullName": "Ref–Ref",
       "isBaseline": true,
       "TFE": 0.061,
       "SFE": 0.094,
