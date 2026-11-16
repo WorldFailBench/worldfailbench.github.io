@@ -334,3 +334,162 @@ window.DATASET_SAMPLES = [
     "episode": "episode_035"
   }
 ];
+
+window.BOUNDARY_EXAMPLES = [
+  {
+    "environment": "RoboTwin",
+    "factor": "position",
+    "pair": "pair_003",
+    "title": "Place a container on a plate",
+    "policy": "LingBot-VLA-v2",
+    "intervention": "Move the container 4 cm along the y-axis.",
+    "success": {
+      "file": "robotwin-position-success.mp4",
+      "poster": "robotwin-position-success.jpg",
+      "condition": "Container y-offset +20 cm",
+      "caption": "The container is grasped and placed on the plate.",
+      "duration": 5.0,
+      "width": 320,
+      "height": 240
+    },
+    "failure": {
+      "file": "robotwin-position-failure.mp4",
+      "poster": "robotwin-position-failure.jpg",
+      "condition": "Container y-offset +24 cm",
+      "caption": "The gripper misses the container and reaches the plate empty.",
+      "duration": 13.333333,
+      "width": 320,
+      "height": 240
+    }
+  },
+  {
+    "environment": "RoboTwin",
+    "factor": "orientation",
+    "pair": "pair_034",
+    "title": "Stack two blocks",
+    "policy": "FastWAM",
+    "intervention": "Rotate the red block by another 20 degrees.",
+    "success": {
+      "file": "robotwin-orientation-success.mp4",
+      "poster": "robotwin-orientation-success.jpg",
+      "condition": "Red block yaw +20\u00b0",
+      "caption": "The green block is placed on top of the red block.",
+      "duration": 10.6,
+      "width": 320,
+      "height": 240
+    },
+    "failure": {
+      "file": "robotwin-orientation-failure.mp4",
+      "poster": "robotwin-orientation-failure.jpg",
+      "condition": "Red block yaw +40\u00b0",
+      "caption": "The blocks end up side by side instead of stacked.",
+      "duration": 26.666667,
+      "width": 320,
+      "height": 240
+    }
+  },
+  {
+    "environment": "RoboTwin",
+    "factor": "size",
+    "pair": "pair_046",
+    "title": "Pick up two bottles",
+    "policy": "LingBot-VLA-v2",
+    "intervention": "Increase the green bottle from 1.2 to 1.4 times its original linear dimensions.",
+    "success": {
+      "file": "robotwin-size-success.mp4",
+      "poster": "robotwin-size-success.jpg",
+      "condition": "Green bottle scale 1.2\u00d7",
+      "caption": "Both bottles are grasped and lifted.",
+      "duration": 3.7,
+      "width": 320,
+      "height": 240
+    },
+    "failure": {
+      "file": "robotwin-size-failure.mp4",
+      "poster": "robotwin-size-failure.jpg",
+      "condition": "Green bottle scale 1.4\u00d7",
+      "caption": "The larger green bottle topples and remains on the table.",
+      "duration": 13.333333,
+      "width": 320,
+      "height": 240
+    }
+  },
+  {
+    "environment": "LIBERO",
+    "factor": "position",
+    "pair": "pair_025",
+    "title": "Put the mug in the microwave",
+    "policy": "\u03c00.5 \u00b7 20% training data",
+    "intervention": "Move the mug 2 cm along the x-axis.",
+    "success": {
+      "file": "libero-position-success.mp4",
+      "poster": "libero-position-success.jpg",
+      "condition": "Mug x-offset +4 cm",
+      "caption": "The mug is placed in the microwave and the door closes.",
+      "duration": 11.3,
+      "width": 256,
+      "height": 256
+    },
+    "failure": {
+      "file": "libero-position-failure.mp4",
+      "poster": "libero-position-failure.jpg",
+      "condition": "Mug x-offset +6 cm",
+      "caption": "The mug falls outside the microwave.",
+      "duration": 26.05,
+      "width": 256,
+      "height": 256
+    }
+  },
+  {
+    "environment": "LIBERO",
+    "factor": "orientation",
+    "pair": "pair_005",
+    "title": "Place the book in the caddy",
+    "policy": "\u03c00.5 \u00b7 20% training data",
+    "intervention": "Rotate the book by another 10 degrees.",
+    "success": {
+      "file": "libero-orientation-success.mp4",
+      "poster": "libero-orientation-success.jpg",
+      "condition": "Book yaw +40\u00b0",
+      "caption": "The book is grasped and placed in the caddy.",
+      "duration": 9.9,
+      "width": 256,
+      "height": 256
+    },
+    "failure": {
+      "file": "libero-orientation-failure.mp4",
+      "poster": "libero-orientation-failure.jpg",
+      "condition": "Book yaw +50\u00b0",
+      "caption": "Repeated grasp attempts leave the book on the table.",
+      "duration": 26.05,
+      "width": 256,
+      "height": 256
+    }
+  },
+  {
+    "environment": "LIBERO",
+    "factor": "size",
+    "pair": "pair_048",
+    "title": "Put the moka pot on the stove",
+    "policy": "\u03c00.5 \u00b7 50% training data",
+    "intervention": "Increase the pot from 1.3 to 1.4 times its original linear dimensions.",
+    "success": {
+      "file": "libero-size-success.mp4",
+      "poster": "libero-size-success.jpg",
+      "condition": "Moka pot scale 1.3\u00d7",
+      "caption": "The stove is turned on and the pot is placed on the burner.",
+      "duration": 12.7,
+      "width": 256,
+      "height": 256
+    },
+    "failure": {
+      "file": "libero-size-failure.mp4",
+      "poster": "libero-size-failure.jpg",
+      "condition": "Moka pot scale 1.4\u00d7",
+      "caption": "The larger pot is dropped and overturned on the table.",
+      "duration": 26.05,
+      "width": 256,
+      "height": 256
+    }
+  }
+];

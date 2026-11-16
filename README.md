@@ -25,6 +25,8 @@ Edit index.html, style.css, app.js, data.js, or assets/, then push to main. The 
 - Anonymous full paper and appendix: original author block, institutional logo, links, and identifying document metadata removed. Ordinary academic references are preserved.
 - Original research figures and six real initial observations.
 - Real initial observations, reference outcomes, and task-stage vocabulary in the scene gallery.
+- Six paired boundary examples (12 reference videos) across RoboTwin and LIBERO, covering position, orientation, and size. Individual outcomes are checked against scene annotations and visually reviewed.
+- Video frames are preserved by stream-copying H.264 into fast-start MP4; native resolution and frame rate are unchanged. Selected source paths and media checksums are recorded in assets/boundary/manifest.json.
 - Interactive evaluation-task tabs and factor-specific RoboTwin result explorer.
 - All dataset resource entry points link directly to the complete official Hugging Face release.
 

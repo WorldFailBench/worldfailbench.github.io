@@ -19,3 +19,57 @@ const dialog=$('#figure-dialog');document.addEventListener('click',e=>{const b=e
 const toggle=$('.menu-toggle');toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',open);$('#nav-links').classList.toggle('open',open)});$$('#nav-links a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded',false);$('#nav-links').classList.remove('open')}));
 function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;$('.reading-progress').style.width=(max>0?scrollY/max*100:0)+'%'}addEventListener('scroll',updateProgress,{passive:true});addEventListener('resize',updateProgress);updateProgress();
 const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){$$('#nav-links a').forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id))}})},{rootMargin:'-15% 0px -65% 0px'});$$('section[id]').forEach(s=>observer.observe(s));
+
+// Paired reference rollouts: condition labels and episode outcomes are separate.
+(function setupBoundaryVideos(){
+ const examples=window.BOUNDARY_EXAMPLES;
+ if(!examples?.length)return;
+ const panel=$('#boundary-videos'),videos=[$('#boundary-success-video'),$('#boundary-failure-video')];
+ const playButton=$('#boundary-play'),status=$('#boundary-playback-status');
+ let environment='RoboTwin',factor='orientation',generation=0;
+ const isPlaying=()=>videos.some(v=>!v.paused&&!v.ended);
+ function updatePlayButton(){playButton.textContent=isPlaying()?'Pause both':'Play both';}
+ function selectBoundary(){
+  generation++;
+  const example=examples.find(e=>e.environment===environment&&e.factor===factor);
+  videos.forEach(v=>v.pause());
+  panel.dataset.environment=environment;
+  $$('[data-boundary-env]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.boundaryEnv===environment));
+  $$('[data-boundary-factor]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.boundaryFactor===factor));
+  $('#boundary-pair').textContent=environment.toUpperCase()+' / '+factor.toUpperCase()+' / '+example.pair;
+  $('#boundary-task').textContent=example.title;
+  $('#boundary-intervention').textContent=example.intervention;
+  $('#boundary-policy').textContent=example.policy;
+  ['success','failure'].forEach((outcome,i)=>{
+   const clip=example[outcome],video=videos[i];
+   video.src='assets/boundary/'+clip.file;
+   video.poster='assets/boundary/'+clip.poster;
+   video.setAttribute('aria-label',environment+' '+example.title+' - '+outcome+' at '+clip.condition);
+   $('#boundary-'+outcome+'-condition').textContent=clip.condition;
+   $('#boundary-'+outcome+'-caption').textContent=clip.caption;
+   video.load();
+  });
+  status.textContent='Use the controls to compare the two rollouts.';
+  updatePlayButton();
+ }
+ async function playBoth(restart=false){
+  const current=++generation;
+  if(restart||videos.every(v=>v.ended))videos.forEach(v=>{v.currentTime=0;});
+  status.textContent='Loading the paired rollouts...';
+  const outcomes=await Promise.allSettled(videos.filter(v=>!v.ended).map(v=>v.play()));
+  if(current!==generation)return;
+  status.textContent=outcomes.some(r=>r.status==='rejected')?'Use each video\'s play control to start playback.':'Playing paired reference rollouts.';
+  updatePlayButton();
+ }
+ $$('[data-boundary-env]').forEach(b=>b.addEventListener('click',()=>{if(environment!==b.dataset.boundaryEnv){environment=b.dataset.boundaryEnv;selectBoundary();}}));
+ $$('[data-boundary-factor]').forEach(b=>b.addEventListener('click',()=>{if(factor!==b.dataset.boundaryFactor){factor=b.dataset.boundaryFactor;selectBoundary();}}));
+ playButton.addEventListener('click',()=>{if(isPlaying()){generation++;videos.forEach(v=>v.pause());status.textContent='Playback paused.';}else playBoth();});
+ $('#boundary-restart').addEventListener('click',()=>playBoth(true));
+ videos.forEach(v=>{
+  ['play','pause'].forEach(event=>v.addEventListener(event,updatePlayButton));
+  v.addEventListener('ended',()=>{updatePlayButton();status.textContent=videos.every(x=>x.ended)?'Both rollouts finished. Restart to compare again.':isPlaying()?'One rollout has finished; the other continues.':'One rollout has finished. Play to continue the comparison.';});
+  v.addEventListener('error',()=>{status.textContent='This video could not load. Select another pair or try again.';});
+ });
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){generation++;videos.forEach(v=>v.pause());status.textContent='Playback paused.';updatePlayButton();}});
+ selectBoundary();
+})();
