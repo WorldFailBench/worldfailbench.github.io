@@ -26,7 +26,7 @@ Edit index.html, style.css, app.js, data.js, or assets/, then push to main. The 
 - RoboTwin, LIBERO, and G1 platform coverage with representative imagery.
 - Six paired boundary examples (12 reference videos), with individual outcomes checked against scene annotations and visual review.
 - Video frames are preserved by stream-copying H.264 into fast-start MP4. Source paths and checksums are recorded in assets/boundary/manifest.json.
-- The only external destination linked by the website is the complete dataset on Hugging Face.
+- The only external destination linked by the website is the anonymous dataset release: https://anonymous.4open.science/r/WORLDFAILBENCH-964A/README.md
 
 data.js contains verified result values and boundary video records. Controlled boundary evaluation covers RoboTwin and LIBERO; type and stage evaluation also cover real-world G1 tasks. Counts distinguish benchmark coverage from released simulation evaluation records.
 
