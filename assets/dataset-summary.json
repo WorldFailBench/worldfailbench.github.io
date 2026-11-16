@@ -45,7 +45,6 @@
     "Action Execution Failure",
     "Indeterminate Failure"
   ],
-  "code_status": "Not yet released",
   "notes": [
     "Paper scope and released simulation evaluation scope are distinct.",
     "Boundary episodes are separate from the 6500 simulation evaluation episodes.",
