@@ -29,3 +29,6 @@
 
 .example-stage-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:0 20px 14px;font-size:11px;text-align:center;line-height:1.5}.example-stage-track span{border-bottom:2px solid #adc4b4;padding:0 0 6px;color:var(--green)}.example-stage-track .failed{color:#a65736;border-color:#c88161;font-weight:650}.example-stage-track .unreached{color:var(--muted);border-bottom-style:dashed;border-color:var(--line)}.example-frame-labels{display:grid;grid-template-columns:1fr 1fr;padding:0 14px 9px;font:10px var(--mono);text-align:center;color:var(--muted)}.task-example-context{font-size:13px!important;font-weight:600;color:var(--ink)!important;margin:0 0 15px!important}.task-example-scope{font-size:11px!important;margin:13px 0 0!important}.task-example-card figcaption .example-rate{font-size:12px;color:var(--muted);letter-spacing:0}
 @media(max-width:700px){.example-stage-track{font-size:10px;gap:5px;padding:0 12px 12px}.task-example-context{font-size:12px!important}.task-example-scope{font-size:10px!important}}
+
+/* Platform demonstrations retain their native aspect ratios inside aligned cards. */
+.platform-media{aspect-ratio:4/3;background:#172724;border-bottom:1px solid var(--line);overflow:hidden}.platform-video{display:block;width:100%;height:100%;object-fit:contain;background:#172724}

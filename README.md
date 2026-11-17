@@ -23,7 +23,7 @@ Edit index.html, style.css, app.js, data.js, or assets/, then push to main. The 
 ## Materials
 
 - Benchmark diagrams and diagnostic findings organized by failure type, failure stage, and failure boundary.
-- RoboTwin, LIBERO, and G1 platform coverage with representative imagery.
+- RoboTwin, LIBERO, and G1 platform coverage with user-provided demonstration videos. Platform videos retain their original encoded frames, resolution, and frame rate.
 - Six paired boundary examples (12 reference videos), with individual outcomes checked against scene annotations and visual review.
 - Video frames are preserved by stream-copying H.264 into fast-start MP4. Source paths and checksums are recorded in assets/boundary/manifest.json.
 - The only external destination linked by the website is the anonymous dataset release: https://anonymous.4open.science/r/WORLDFAILBENCH-964A/README.md
